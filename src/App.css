@@ -1,38 +1,183 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&family=Fira+Code:wght@300;400;500&display=swap');
+
+:root {
+  --text-color: #8892b0;
+  --highlight-color: #64ffda;
+  --secondary-color: #112240;
+  --heading-font: 'Raleway', sans-serif;
+  --body-font: 'Fira Code', monospace;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@keyframes gradientBackground {
+  0% {
+    background-position: 0% 50%;
   }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+body {
+  font-family: var(--body-font);
+  color: var(--text-color);
+  line-height: 1.8;
+  font-size: 18px;
+  background: linear-gradient(270deg, #0a192f, #112240, #1d3557);
+  background-size: 600% 600%;
+  animation: gradientBackground 15s ease infinite;
+}
+
+
+.App {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  text-align: center;
+  margin-bottom: 6rem;
+  animation: fadeInDown 1s ease-out;
+}
+
+.App-header h1 {
+  font-family: var(--heading-font);
+  color: var(--highlight-color);
+  font-size: 6rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.App-header p {
+  font-size: 1.8rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+section {
+  margin-bottom: 4rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+h2 {
+  font-family: var(--heading-font);
+  color: var(--highlight-color);
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background-color: var(--highlight-color);
+  transition: width 0.3s ease-out;
+}
+
+h2:hover::after {
+  width: 100%;
+}
+
+ul {
+  list-style-type: none;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+ul li {
+  font-family: var(--body-font);
+  background-color: var(--secondary-color);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
 }
 
-@keyframes App-logo-spin {
+ul li:hover {
+  transform: translateY(-5px);
+  background-color: var(--highlight-color);
+  color: var(--bg-color);
+}
+
+.experience-item, .project-item {
+  background-color: var(--secondary-color);
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-item:hover, .project-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.experience-item h3, .project-item h3 {
+  font-family: var(--heading-font);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--highlight-color);
+}
+
+footer {
+  text-align: center;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--secondary-color);
+  animation: fadeInUp 1s ease-out;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+a {
+  color: var(--highlight-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+@keyframes fadeInDown {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(-20px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
