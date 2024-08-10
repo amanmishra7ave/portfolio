@@ -25,6 +25,7 @@ function App() {
             <li>Web development</li>
             <li>Linux</li>
             <li>OpenCV</li>
+            <li>Deep Learning</i>
           </ul>
         </section>
         <section id='experience'>
